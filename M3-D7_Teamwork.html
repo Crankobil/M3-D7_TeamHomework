@@ -64,19 +64,14 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">User ID</th>
         <th scope="col">Name</th>
         <th scope="col">User Name</th>
         <th scope="col">E-mail</th>
       </tr>
     </thead>
     <tbody id="table-body">
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
+      
 
     </tbody>
   </table>
@@ -103,8 +98,16 @@
         const users = await resp.json()
         console.log(users)
 
-        container.innerHTML = ""
-        users.array.forEach(element => {
+        tableBody.innerHTML = ""
+
+        users.forEach(user => {
+        tableBody.innerHTML += `
+          <tr>
+        <th scope="row">${user.id}</th>
+        <td>${user.name}</td>
+        <td>${user.username}</td>
+        <td>${user.email}</td>
+        </tr>`
           
         });
 
