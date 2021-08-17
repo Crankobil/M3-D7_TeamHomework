@@ -59,6 +59,15 @@
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+      
+      <select name="user-choice" value="select" id="user-select" style="margin-left: 20px;margin-right: 10px;">
+        <option value="#">Choose your value</option>
+        <option value="name">Name</option>
+        <option value="user-name">UserName</option>
+        <option value="email">Email</option>
+    </select>
+    <input type="button" value="select" onclick="filter()">
     </form>
   </nav>
   <table class="table table-striped">
@@ -116,6 +125,32 @@
       }
     };
 
+    const selectFilter = document.querySelector('#user-select');
+
+    const filter = () =>{
+        console.log(selectFilter.options[selectFilter.selectedIndex].value)
+        let selectedOptions = selectFilter.options[selectFilter.selectedIndex].value
+
+        if(selectedOptions === 'Name'){
+            tableBody.innerHTML = ""
+
+        users.forEach(user => {
+        tableBody.innerHTML += `
+          <tr>
+        <th scope="row">${user.id}</th>
+        <td>${user.name}</td>
+        </tr>`
+          
+        })
+    }
+        else if(selectedOptions === 'user-name'){
+            console.log('hqdguiehfir')
+        }
+        else if(selectedOptions === 'email'){
+            console.log('yyuejfijdi')
+        }
+        
+    }
 
   </script>
 </body>
